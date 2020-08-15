@@ -14,17 +14,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
     //Esto se ejecutará cada vez que el contenido de [] cambie
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      console.log("consoleo results");
-      console.log(request.data.results);
       setMovies(request.data.results);
       return request;
     }
     fetchData();
     //Aquí incluyo variables que provienen de fuera del componente
   }, [fetchUrl]);
-  console.log("consoleo movies");
-  console.table(movies);
-
+  
   return (
     <div className="row">
       <h2>{title}</h2>
