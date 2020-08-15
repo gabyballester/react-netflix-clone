@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import requests from "./requests";
-import './Banner';
+import "./Banner.css";
 
 function Banner() {
   // array vacío por ahora
@@ -20,7 +20,12 @@ function Banner() {
     }
     fetchData();
   }, []);
+
   console.log(movie);
+
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
 
   return (
     <header
@@ -33,7 +38,7 @@ function Banner() {
       }}
     >
       <div className="banner__contents">
-        <h1>
+        <h1 className="banner__title">
           {/* Muestra el título disponible en este orden de prioridad */}
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
@@ -43,8 +48,11 @@ function Banner() {
           <button className="banner__button">Mi Lista</button>
         </div>
 
-        <div className="banner__description">{movie?.overview}</div>
+        <div className="banner__description">
+          {truncate(movie?.overview, 150)}
+        </div>
       </div>
+      <div className="banner--fadeBottom"></div>
     </header>
   );
 }
