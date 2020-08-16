@@ -1,0 +1,32 @@
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 10px;
+    height: 35px;
+
+    display: flex;
+    justify-content: space-between;
+
+    /* Animación scroll transición */
+    transition-timing-function: ease-in;
+    transition: all .8s;
+}
+
+.nav__black{
+    background-color: #111;
+}
+
+.nav__logo {
+    position: fixed;
+    left: 20px;
+    width: 80px;
+    object-fit: contain;
+}
+
+.nav__avatar {
+    position: fixed;
+    right: 20px;
+    width: 25px;
+    object-fit: contain;
+}
